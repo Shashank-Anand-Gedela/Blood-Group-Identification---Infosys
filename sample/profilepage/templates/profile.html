@@ -1,0 +1,549 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page - Blood Group Identification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container Styling */
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 900px; /* Increase the width to allow side-by-side layout */
+            width: 90%;
+            display: flex;
+            flex-direction: row; /* Flex layout for side-by-side form and preview */
+            justify-content: space-between; /* Space between form and image */
+            align-items: flex-start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #182848;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Subtitle */
+        .subtitle {
+            color: #4b6cb7;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        /* Form Label Styling */
+        form label {
+            display: block;
+            margin-top: 20px;
+            font-size: 15px;
+            color: #444;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* File Input Styling */
+        form input[type="file"] {
+            margin-top: 10px;
+            padding: 12px;
+            width: 100%;
+            font-size: 14px;
+            color: #333;
+            border: 2px dashed #4b6cb7;
+            border-radius: 8px;
+            background: #f7f7f7;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        form input[type="file"]:hover {
+            border-color: #182848;
+        }
+
+        /* Button Styling */
+        button {
+            background: linear-gradient(45deg, #4b6cb7, #182848);
+            color: #ffffff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 25px;
+            width: 100%;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #182848, #4b6cb7);
+            transform: scale(1.03);
+        }
+
+        /* Image Preview Styling */
+        .preview-container {
+            margin-top: 0; /* Remove top margin for the image container */
+            text-align: center;
+            flex-basis: 45%; /* Image takes up about 45% of the container */
+            padding-left: 30px; /* Space between form and image */
+        }
+
+        .preview-container h2 {
+            font-size: 20px;
+            color: #182848;
+            margin-bottom: 10px;
+        }
+
+        .preview-container img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .preview-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Additional Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Stack form and image on smaller screens */
+                align-items: center;
+                max-width: 500px;
+            }
+
+            .preview-container {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Blood Group Identification</h1>
+            <p class="subtitle">Upload your ABD Test Cell Image to detect your blood group</p>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="abd">ABD Test Cell Image:</label>
+                <input type="file" id="abd" name="abd" accept="image/*" required>
+                <button type="submit">Identify Blood Group</button>
+            </form>
+        </div>
+
+        <div class="preview-container">
+            <h2>Image Preview</h2>
+            <img src="{% if img %}{{ img }}{% else %}https://via.placeholder.com/320x240.png?text=Dummy+Image{% endif %}" alt="Selected Image Preview">
+        </div>
+    </div>
+</body>
+</html> 
+-->
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page - Blood Group Identification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container Styling */
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 90%;
+            display: flex;
+            flex-direction: row; /* Flex layout for side-by-side form and preview */
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: #182848;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Subtitle */
+        .subtitle {
+            color: #4b6cb7;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        /* Form Label Styling */
+        form label {
+            display: block;
+            margin-top: 20px;
+            font-size: 15px;
+            color: #444;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* File Input Styling */
+        form input[type="file"] {
+            margin-top: 10px;
+            padding: 12px;
+            width: 100%;
+            font-size: 14px;
+            color: #333;
+            border: 2px dashed #4b6cb7;
+            border-radius: 8px;
+            background: #f7f7f7;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        form input[type="file"]:hover {
+            border-color: #182848;
+        }
+
+        /* Button Styling */
+        button {
+            background: linear-gradient(45deg, #4b6cb7, #182848);
+            color: #ffffff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 25px;
+            width: 100%;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #182848, #4b6cb7);
+            transform: scale(1.03);
+        }
+
+        /* Image Preview Styling */
+        .preview-container {
+            margin-top: 0;
+            text-align: center;
+            flex-basis: 45%; /* Image takes up about 45% of the container */
+            padding-left: 30px;
+        }
+
+        .preview-container h2 {
+            font-size: 20px;
+            color: #182848;
+            margin-bottom: 10px;
+        }
+
+        .preview-container img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .preview-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contour Length Styling */
+        .contour-length {
+            font-size: 18px;
+            color: #4b6cb7;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Additional Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                max-width: 500px;
+            }
+
+            .preview-container {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    -->
+        <!-- Form Container 
+        <div class="form-container">
+            <h1>Blood Group Identification</h1>
+            <p class="subtitle">Upload your ABD Test Cell Image to detect your blood group</p>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="abd">ABD Test Cell Image:</label>
+                <input type="file" id="abd" name="abd" accept="image/*" required>
+                <button type="submit">Identify Blood Group</button>
+            </form>
+            {% if contour_length is not none %}
+                <div class="contour-length">
+                    <h2>Contour Length: {{ contour_length }} pixels</h2>
+                </div>
+            {% endif %}
+        </div>
+
+         Image Preview 
+        <div class="preview-container">
+            <h2>Image Preview</h2>
+            <img src="{% if img %}{{ img }}{% else %}https://via.placeholder.com/320x240.png?text=Dummy+Image{% endif %}" alt="Selected Image Preview">
+        </div>
+    </div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blood Group Identification</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Open Sans', sans-serif;
+                background: linear-gradient(135deg, #4b6cb7, #182848);
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                padding: 20px;
+            }
+
+            .container {
+                background: #ffffff;
+                padding: 40px;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                max-width: 900px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .form-container {
+                flex: 1;
+            }
+
+            .image-preview-container {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            h1, h2 {
+                font-family: 'Montserrat', sans-serif;
+                color: #182848;
+                font-size: 22px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            .subtitle {
+                color: #555;
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            form label {
+                font-size: 15px;
+                font-weight: bold;
+                color: #444;
+            }
+
+            form input[type="file"] {
+                margin-top: 10px;
+                padding: 12px;
+                width: 100%;
+                font-size: 14px;
+                border: 2px dashed #4b6cb7;
+                border-radius: 8px;
+                background: #f7f7f7;
+                cursor: pointer;
+            }
+
+            button {
+                background: linear-gradient(45deg, #4b6cb7, #182848);
+                color: #ffffff;
+                padding: 15px;
+                border: none;
+                border-radius: 8px;
+                font-size: 18px;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 20px;
+                width: 100%;
+                transition: background 0.3s, transform 0.3s;
+            }
+
+            button:hover {
+                background: linear-gradient(45deg, #182848, #4b6cb7);
+                transform: scale(1.03);
+            }
+
+            .result-container {
+                margin-top: 20px;
+                text-align: center;
+                padding: 20px;
+                background: #f1f4f9;
+                border: 1px solid #4b6cb7;
+                border-radius: 12px;
+            }
+
+            .result-container h2 {
+                color: #182848;
+                font-size: 22px;
+                font-weight: bold;
+            }
+
+            .result-container p {
+                font-size: 18px;
+                color: #444;
+            }
+
+            .preview-container img {
+                width: 70%;
+                max-width: 300px;
+                height: auto;
+                border-radius: 15px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Form Container -->
+            <div class="form-container">
+                <h1>Blood Group Identification</h1>
+                <p class="subtitle">Upload your ABD test cell image to detect your blood group type.</p>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="abd">ABD Test Cell Image:</label>
+                    <input type="file" id="abd" name="abd" accept="image/*" required>
+                    <button type="submit">Identify Blood Group</button>
+                </form>
+                
+                {% if obj %}
+                    <div class="result-container">
+                        <h2>Blood Group Detected:</h2>
+                        <p>{{ obj }}</p>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Image Previews -->
+            <div class="image-preview-container">
+                <div class="preview-container">
+                    <h2>Uploaded Image</h2>
+                    <img src="{% if img %}{{ img }}{% else %}https://via.placeholder.com/320x240.png?text=No+Image+Uploaded{% endif %}" alt="Selected Image Preview">
+                </div>
+
+                {% if mor_img %}
+                    <div class="preview-container">
+                        <h2>Morphological Image</h2>
+                        <img src="{{ mor_img }}" alt="Morphological Processed Image">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
