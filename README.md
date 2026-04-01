@@ -1,15 +1,5 @@
 # 🩸 Blood Group Identification
 
-## 📷 Output Screens
-
-![Home Page](images/home.png)
-➡️ This is the main page where the user enters the required details such as input values needed for prediction. The interface is simple and designed to be user-friendly so that anyone can use it without confusion.
-
-![Result Page](images/result.png)
-➡️ After submitting the data, the system processes the input and displays the predicted blood group clearly on this page. The result is shown in an easy-to-understand format.
-
----
-
 ## 📌 About Project
 
 This project is a web-based application developed using Django. It helps in identifying a person's blood group based on given input data. The main goal of this project is to simplify the prediction process and provide quick results through a web interface.
@@ -34,6 +24,16 @@ The following technologies were used to build this project:
 * HTML → Used to design the structure of web pages
 * CSS → Used for styling and improving UI
 * SQLite → Used as the database to store data
+
+## 📷 Output Screens
+
+![Home Page](images/home.png)
+➡️ This is the main page where the user enters the required details such as input values needed for prediction. The interface is simple and designed to be user-friendly so that anyone can use it without confusion.
+
+![Result Page](images/result.png)
+➡️ After submitting the data, the system processes the input and displays the predicted blood group clearly on this page. The result is shown in an easy-to-understand format.
+
+---
 
 ## ▶️ How to Run
 
